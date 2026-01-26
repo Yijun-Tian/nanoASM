@@ -146,7 +146,7 @@ while IFS= read -r line; do
 
       sig="$(awk -v va="$variant_string" -v N1="$n1" -v N2="$n2" '
         BEGIN{FS=OFS="\t"}
-        ($4<=1e-5 && ($5*$5)>=625){print $0,va,N1,N2}
+        ($4<=1e-3 && ($5*$5)>=400){print $0,va,N1,N2}
       ' "${id}.ref.alt.5mCG.output")"
 
       popd >/dev/null
