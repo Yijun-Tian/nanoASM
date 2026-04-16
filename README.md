@@ -32,7 +32,21 @@ scripts/dorado_basecall_cg.sh
 
 ---
 
-### 2. Variant Calling and Phasing
+### 2. Call modified bases
+
+Before running `bam_prep.sh`, call modified bases:
+
+```bash
+for bam in *.sorted.bam; do
+  modkit call-mods -t 47 "$bam" "${bam%.sorted.bam}.called.bam"
+done
+```
+
+* The resulting `*.called.bam` files are used as input for `bam_prep.sh`.
+
+---
+
+### 3. Variant Calling and Phasing
 
 ```bash
 scripts/variant_call_phase.sh
@@ -45,7 +59,7 @@ scripts/variant_call_phase.sh
 
 ---
 
-### 3. ASM Detection (Core)
+### 4. ASM Detection (Core)
 
 ```bash
 scripts/asm_core.sh
@@ -70,7 +84,7 @@ Main steps:
 
 ---
 
-### 4. Cohort Execution
+### 5. Cohort Execution
 
 Run ASM per cohort using Slurm:
 
