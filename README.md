@@ -1,8 +1,10 @@
 ## nanoASM
-One has a conviction that proxy ASM might be more causal than mQTL. This repository was developed to perform such validation
-![alt text](github_fig.png)
+
+One has a conviction that proxy ASM might be more causal than mQTL. This repository was developed to perform such validation\
 
 Pipeline for allele-specific methylation (ASM) analysis using nanopore long-read sequencing.
+
+![nanoASM pipeline overview](github_fig.png)
 
 ---
 
@@ -108,9 +110,50 @@ These scripts:
 * bcftools
 * bedtools
 * modkit
-* metilene
+* metilene (v0.2-8 recommended)
 * Python (pysam)
 * R (for downstream analysis)
+
+---
+
+### metilene
+
+`metilene` is required for ASM/DMR detection and is **not included** in this repository.
+
+Download from:
+https://www.bioinf.uni-leipzig.de/Software/metilene/
+
+After installation, set the path:
+
+```bash
+export METILENE_DIR=/path/to/metilene_v0.2-8
+```
+
+The pipeline expects:
+
+```bash
+${METILENE_DIR}/metilene_linux64
+```
+
+---
+
+## Demo
+
+A minimal demo dataset is provided under `demo/`.
+
+Run ASM on the demo data:
+
+```bash
+mkdir -p demo/output demo/output/matrices
+
+bash scripts/asm_core.sh \
+  demo/NormalChunk/chunk_demo.txt \
+  demo/NormalSlice \
+  demo/output/demo.output.txt \
+  demo/output/matrices \
+  demo/output/demo.log \
+  0.9
+```
 
 ---
 
@@ -125,7 +168,7 @@ These scripts:
 ## Outputs
 
 * `*.output.txt` → ASM/DMR results
-* `*.matrix.txt` → per-locus methylation matrices
+* `*.matrix.txt` → per-locus methylation matrices for significant loci with sufficiently large delta only
 * log files for segmentation faults and filtering steps
 
 ---
@@ -133,5 +176,4 @@ These scripts:
 ## Author
 
 Yijun Tian
-
 
