@@ -1,6 +1,6 @@
 ## nanoASM
 
-One has a conviction that proxy ASM might be more causal than mQTL. This repository was developed to perform such validation\
+One has a conviction that proxy ASM might be more causal than mQTL. This repository was developed to perform such validation.
 
 Pipeline for allele-specific methylation (ASM) analysis using nanopore long-read sequencing.
 
@@ -176,4 +176,12 @@ bash scripts/asm_core.sh \
 ## Author
 
 Yijun Tian
+
+---
+
+## Citation
+
+https://doi.org/10.64898/2026.06.17.732357
+
+---
 
