@@ -1,13 +1,10 @@
 ## nanoASM
 
-One has a conviction that proxy ASM might be more causal than mQTL. This repository was developed to perform such validation.
-
-Pipeline for allele-specific methylation (ASM) analysis using nanopore long-read sequencing.
+One has a conviction that proxy ASM might be more causal than mQTL. This repository was developed to use nanopore long-read DNA sequencing data to perform such validation. Pipeline for allele-specific methylation (ASM) analysis using nanopore long-read sequencing.
 
 ![nanoASM pipeline overview](github_fig.png)
 
-Visualization of clustered ASM loci identified by nanoASM.
-Gene models, GTEx eQTL SNPs, and all common SNPs are shown in the upper panels. Each horizontal track represents a SNP associated with one or more allele-specific methylation regions (DMRs). Vertical bars indicate SNP positions, while colored rectangles denote DMR coordinates and methylation differences. Dashed blue and red outlines correspond to DMRs identified in normal and cancer tissues, respectively. This example highlights an ASM region associated with rs4736369 that is consistently observed in both normal and tumor tissues, suggesting a unique epigenetic regulatory mechanism linked to this variant.
+Visualization of clustered ASM loci identified by nanoASM (GeneLevelASM.sh). Gene models, GTEx eQTL SNPs, and all common SNPs are shown in the upper panels. Each horizontal track represents a SNP associated with one or more allele-specific methylation regions (DMRs). Vertical bars indicate SNP positions, while colored rectangles denote DMR coordinates and methylation differences. Dashed blue and red outlines correspond to DMRs identified in normal and cancer tissues, respectively. This example highlights an ASM region associated with rs4736369 that is consistently observed in both normal and tumor tissues, suggesting a unique epigenetic regulatory mechanism linked to this variant.
 
 ![nanoASM pipeline overview](github_fig2.png)
 
