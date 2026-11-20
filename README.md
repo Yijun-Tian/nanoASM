@@ -22,6 +22,14 @@ The workflow is designed for nanopore R10 data with modified base detection (5mC
 
 ---
 
+## Installation
+
+Clone the repository and ensure the required tools (such as Dorado, `samtools`, `bcftools`, `bedtools`, `modkit`, `metilene`, and Python with `pysam`) are installed and available in your `PATH`, with `METILENE_DIR` configured as shown below.
+
+- **Typical install time on a standard desktop computer:** ~5–15 minutes (depending on whether dependencies such as `metilene` and conda/Python packages are pre-installed).
+
+---
+
 ## Pipeline Structure
 
 ### 1. Basecalling
@@ -156,7 +164,8 @@ bash scripts/asm_core.sh \
   demo/output/demo.log \
   0.9
 ```
-
+Expected run time on a standard desktop computer: ~<1–2 minutes for the minimal demo/ dataset (full WGS cohorts require HPC/cluster resources and longer runtimes).
+*(Tip: Replace the approximate minute estimates above with your actual measured times once you time the install and demo run, and then you can check both **Typical install time on a "normal" desktop computer** and **Expected run time for demo on a "normal" desktop computer** on the checklist[cite: 43].)*
 ---
 
 ## Notes
