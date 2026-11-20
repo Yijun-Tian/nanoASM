@@ -164,8 +164,9 @@ bash scripts/asm_core.sh \
   demo/output/demo.log \
   0.9
 ```
+
 Expected run time on a standard desktop computer: ~<1–2 minutes for the minimal demo/ dataset (full WGS cohorts require HPC/cluster resources and longer runtimes).
-*(Tip: Replace the approximate minute estimates above with your actual measured times once you time the install and demo run, and then you can check both **Typical install time on a "normal" desktop computer** and **Expected run time for demo on a "normal" desktop computer** on the checklist[cite: 43].)*
+
 ---
 
 ## Notes
