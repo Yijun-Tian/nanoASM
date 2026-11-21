@@ -168,6 +168,11 @@ bash scripts/asm_core.sh \
 Expected run time on a standard desktop computer: ~<1–2 minutes for the minimal demo/ dataset (full WGS cohorts require HPC/cluster resources and longer runtimes).
 
 ---
+### HPC Performance & Runtime Optimization
+* Parallelization: For HPC environments, we recommend launching a SLURM job array indexed across the input VCF files.
+* Minimizing I/O Bottlenecks: To avoid concurrent read contention on shared BAM files, split the input BAM by chromosome so each array task reads a dedicated slice—substantially reducing overall wall-clock time.
+* Expected Runtime: Across our cancer and normal cohorts, a full `nanoASM` run typically completes overnight searching through 3-6 million candidate SNPs.
+---
 
 ## Notes
 
