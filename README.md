@@ -82,7 +82,7 @@ Main steps:
 * Label reads by allele using:
 
   ```bash
-  utils/label_reads_by_variant.py
+  label.py
   ```
 * Extract CpG methylation using `modkit`
 * Build per-sample CpG `.bg` files
