@@ -44,9 +44,24 @@ awk -v v="$NA_THR" 'BEGIN{
 # ------------------------------------------------------------
 # Configuration
 # ------------------------------------------------------------
-GENOME_REF="/share/lab_wangl/Yijun_Tian/WGS_Prostate/hg38.alignmt.fa"
-METILENE_DIR="/share/lab_wangl/Yijun_Tian/WGS_Prostate/metilene_v0.2-8"
-LABEL_SCRIPT="/share/lab_wangl/Yijun_Tian/WGS_Prostate/labelAlign/label.py"
+# Resolve script directory so relative paths work regardless of where the script is invoked from
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Configurable paths (can be overridden by environment variables or CLI flags)
+GENOME_REF="${GENOME_REF:-${SCRIPT_DIR}/demo/hg38.alignmt.fa}"
+METILENE_DIR="${METILENE_DIR:-$(dirname "$(command -v metilene)")}"
+LABEL_SCRIPT="${LABEL_SCRIPT:-${SCRIPT_DIR}/label.py}"
+
+MODKIT="${MODKIT:-$(command -v modkit || true)}"
+if [[ -z "${MODKIT}" || ! -x "${MODKIT}" ]]; then
+  echo "Error: modkit not found on PATH and MODKIT is not set." >&2
+  exit 1
+fi
+
+if ! command -v samtools >/dev/null 2>&1; then
+  echo "Error: samtools not found on PATH." >&2
+  exit 1
+fi
 
 MIN_KEEP=3
 
@@ -96,7 +111,7 @@ while IFS= read -r line; do
     END {print chr ":" left "-" right}
   ')
 
-  ~/dist/modkit pileup \
+  "${MODKIT}" pileup \
     -t 4 \
     --region "$REGION" \
     --filter-threshold 0.99609375 \
